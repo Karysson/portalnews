@@ -1,0 +1,114 @@
+<html>
+        <%- include('partials/header.html') %>
+        <title>Portal News</title>
+        <section class="noticia-destaque">
+            <div class="center">
+                <!-- Carrossel Swiper -->
+                <div class="swiper noticia-destaque-slider">
+                    <div class="swiper-wrapper">
+                        <% if (posts && posts.length > 0) { %>
+                            <% posts.forEach(post => { %>
+                                <div class="swiper-slide">
+                                    <div class="imagem-destaque">
+                                        <div class="overlay-destaque"></div>
+                                        <div class="titulo-destaque-desc">
+                                            <h2><%= post.titulo %></h2>
+                                            <p><%= post.conteudo.substring(0, 150) %>...</p>
+                                            <a href="/<%- post.slug %>" class="leia-mais">Leia mais</a>
+                                        </div>
+                                        <img src="<%- post.imagem %>" alt="<%= post.titulo %>">
+                                    </div>
+                                </div>
+                            <% }) %>
+                        <% } else { %>
+                            <div class="swiper-slide">
+                                <div class="imagem-destaque">
+                                    <div class="overlay-destaque"></div>
+                                    <div class="titulo-destaque-desc">
+                                        <h2>Sem notícias</h2>
+                                        <p>Nenhuma notícia disponível no momento.</p>
+                                    </div>
+                                    <img src="/public/images/placeholder.jpg" alt="Sem notícia">
+                                </div>
+                            </div>
+                        <% } %>
+                    </div>
+                    <!-- Navegação do carrossel -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <!-- Paginação -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="outras-noticias">
+            <h2>Últimas Notícias</h2>
+            <div class="center container-noticias">
+                <div class="ultimas">
+                    <div class="box-ultima-single">
+                        <img src="/public/images/pikachuazul.jpg">
+                        <h3>LirouIstite fica triste.</h3>
+                        <h2>Entenda o motivo de pessoas preferirem o Pikachu</h2>
+                        <p>De acordo com especialistas, o Pikachu tende a ser mais fofo do que o LirouIstite. Isso está afetando a autoestima do ator.</p>
+                        <a href="/lirou-triste">Ler tudo</a>
+                    </div>
+        
+                    <div class="box-ultima-single">
+                        <img src="/public/images/bulbasaur-pokemon.jpg">
+                        <h3>Bulbasaur sofrendo?</h3>
+                        <h2>Fontes indicam: Ator pode estar em depressão.</h2>
+                        <p>Vazamento oficial! Centro Pokemon indica que está com Bulbasaur internado para cuidados de saude metal. 
+                        de acordo com a fonte,ele entrou nesse quadro após fazer o front-end de um site.</p>
+                        <a href="/bulbasaur-depressao">Ler tudo</a>
+                    </div>
+                </div>
+        
+                <div class="mais-lidas">
+                    <h3>As mais lidas</h3>
+                    <div class="mais-lidas-noticias">
+                        <div class="mais-lidas-noticias-single">
+                            <img src="/public/images/ash.jpeg">
+                            <div class="texto-mais-lidas-single">
+                                <h4>Ash impostor?</h4>
+                                <p>Internautas estão desconfiando de Ash. Desde 1999 que o ator tem 10 anos! CGI?</p>
+                                <a href="/ash-arrombado">Ler tudo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mais-lidas-noticias">
+                        <div class="mais-lidas-noticias-single">
+                            <img src="/public/images/itachi.jpg">
+                            <div class="texto-mais-lidas-single">
+                                <h4>Itachi realmente morreu?</h4>
+                                <p>De acordo com especialistas, o mundo que vivemos hoje pode ser um genjutsu do Itachi!</p>
+                                <a href="/itachi-nosso-deus">Ler tudo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mais-lidas-noticias">
+                        <div class="mais-lidas-noticias-single">
+                            <img src="/public/images/goku-saitama.jpg">
+                            <div class="texto-mais-lidas-single">
+                                <h4>Goku vs Saitama!</h4>
+                                <p>Nesse artigo, você descobre quem venceria em uma porradaria sincera: Goku ou Saitama?</p>
+                                <a href="/goku-sentaria-a-porrada-facil">Ler tudo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mais-lidas-noticias">
+                        <div class="mais-lidas-noticias-single">
+                            <img src="/public/images/fudencio.jpg">
+                            <div class="texto-mais-lidas-single">
+                                <h4>Por onde anda fudencio?</h4>
+                                <p>Internautas descobrem como o ator de fudencio está hoje em dia! As drogas valem a pena?</p>
+                                <a href="/drogas-valem-a-pena">Ler tudo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <%- include('partials/footer.html') %>
+    </body>
+</html>

@@ -1,0 +1,87 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Caralho - Resultados da Busca</title>
+
+  <!-- Montserrat font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- Style específico da busca -->
+  <link rel="stylesheet" href="/public/style3.css">
+  
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/6bb3fe01af.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+    <div class="center">
+      <div class="logo">
+        <a href="/" class="logo-link">
+          <h2><span style="font-weight: lighter;">Portal</span><b>Caralho</b></h2>
+        </a>
+      </div>
+      <div class="form-busca">
+        <form>
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Usa o google filho da puta" name="busca">
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <section class="busca-container">
+    <div class="center">
+      <div class="titulo-busca">
+        <h2>Resultados da busca</h2>
+        <p>Veja abaixo as notícias que podem estar relacionadas ao que você procurou.</p>
+      </div>
+
+      <div class="noticias-relacionadas">
+        <h3>Notícias relacionadas</h3>
+
+        <div class="mais-lidas-noticias">
+          <div class="mais-lidas-noticias-single">
+            <img src="/public/images/ash.jpeg" alt="Ash impostor">
+            <div class="texto-mais-lidas-single">
+              <h4>Ash impostor?</h4>
+              <p>Internautas estão desconfiando de Ash. Desde 1999 ele tem 10 anos! CGI?</p>
+              <a href="/ash-arrombado">Ler tudo</a>
+            </div>
+          </div>
+
+          <div class="mais-lidas-noticias-single">
+            <img src="/public/images/itachi.jpg" alt="Itachi genjutsu">
+            <div class="texto-mais-lidas-single">
+              <h4>Itachi realmente morreu?</h4>
+              <p>De acordo com especialistas, o mundo que vivemos hoje pode ser um genjutsu do Itachi!</p>
+              <a href="/itachi-nosso-deus">Ler tudo</a>
+            </div>
+          </div>
+
+          <div class="mais-lidas-noticias-single">
+            <img src="/public/images/goku-saitama.jpg" alt="Goku vs Saitama">
+            <div class="texto-mais-lidas-single">
+              <h4>Goku vs Saitama!</h4>
+              <p>Nesse artigo, você descobre quem venceria em uma porradaria sincera: Goku ou Saitama?</p>
+              <a href="/goku-sentaria-a-porrada-facil">Ler tudo</a>
+            </div>
+          </div>
+
+          <div class="mais-lidas-noticias-single">
+            <img src="/public/images/fudencio.jpg" alt="Fudêncio hoje">
+            <div class="texto-mais-lidas-single">
+              <h4>Por onde anda Fudêncio?</h4>
+              <p>Internautas descobrem como o ator de Fudêncio está hoje em dia! As drogas valem a pena?</p>
+              <a href="/drogas-valem-a-pena">Ler tudo</a>
+            </div>
+          </div>
+        </div> <!-- fim .mais-lidas-noticias -->
+      </div> <!-- fim .noticias-relacionadas -->
+    </div> <!-- fim .center -->
+  </section>
+
+  <%- include('partials/footer.html') %>
+</body>
