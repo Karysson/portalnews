@@ -1,2 +1,16 @@
-<center><h1>PÁGINA NÃO ENONTRADA CARALHO!!!!!</h1></center>
-<center><h1>404!!!!!!!!!</h1></center>
+<html>
+    <head>
+        <link href="/public/style.css" rel="stylesheet" type="text/css">
+        <meta charset="utf-8">
+        <title>404 - Cadê?</title>
+    </head>
+    <body>
+        <%- include('partials/header.html') %>
+        <div class="center">
+            <h1>404 - Cadê?</h1>
+            <p>Essa página não existe.</p>
+            <img src="https://media.tenor.com/Y9ZDTNeZx2MAAAAM/where-looking.gif" alt="Imagem de erro 404" style="width: 300px; height: auto;">
+            <a href="/">Voltar para a página inicial</a>
+        </div>  
+        <%- include('partials/footer.html') %>
+</html>
