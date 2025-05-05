@@ -3,41 +3,32 @@
         <title>Portal News</title>
         <section class="noticia-destaque">
             <div class="center">
-                <!-- Carrossel Swiper -->
-                <div class="swiper noticia-destaque-slider">
-                    <div class="swiper-wrapper">
-                        <% if (posts && posts.length > 0) { %>
-                            <% posts.forEach(post => { %>
-                                <div class="swiper-slide">
-                                    <div class="imagem-destaque">
-                                        <div class="overlay-destaque"></div>
-                                        <div class="titulo-destaque-desc">
-                                            <h2><%= post.titulo %></h2>
-                                            <p><%= post.conteudo.substring(0, 150) %>...</p>
-                                            <a href="/<%- post.slug %>" class="leia-mais">Leia mais</a>
-                                        </div>
-                                        <img src="<%- post.imagem %>" alt="<%= post.titulo %>">
-                                    </div>
-                                </div>
-                            <% }) %>
-                        <% } else { %>
-                            <div class="swiper-slide">
-                                <div class="imagem-destaque">
-                                    <div class="overlay-destaque"></div>
-                                    <div class="titulo-destaque-desc">
-                                        <h2>Sem notícias</h2>
-                                        <p>Nenhuma notícia disponível no momento.</p>
-                                    </div>
-                                    <img src="/public/images/placeholder.jpg" alt="Sem notícia">
-                                </div>
+            <!-- Notícia em Destaque -->
+                <div class="noticia-destaque">
+                    <% if (posts && posts.length > 0) { 
+                        const post = posts[0]; // pega a primeira notícia
+                    %>
+                        <div class="imagem-destaque">
+                            <div class="overlay-destaque"></div>
+                            <div class="titulo-destaque-desc">
+                                <h2><%= post.titulo %></h2>
+                                <p><%- post.conteudo.substring(0, 150) %>...</p>
+                                <a href="/<%- post.slug %>" class="leia-mais">Leia mais</a>
                             </div>
-                        <% } %>
-                    </div>
-                    <!-- Navegação do carrossel -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                    <!-- Paginação -->
-                    <div class="swiper-pagination"></div>
+                            <img src="<%- post.imagem %>" alt="<%= post.titulo %>">
+                        </div>
+                    <% } else { %>
+                        <div class="imagem-destaque">
+                            <div class="overlay-destaque"></div>
+                            <div class="titulo-destaque-desc">
+                                <h2>Sem notícias</h2>
+                                <p>Nenhuma notícia disponível no momento.</p>
+                            </div>
+                            <img src="/public/images/placeholder.jpg" alt="Sem notícia">
+                        </div>
+                    <% } %>
+                </div>
+
                 </div>
             </div>
         </section>
