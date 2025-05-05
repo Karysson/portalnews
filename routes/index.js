@@ -2,25 +2,31 @@ const express = require('express');
 const router = express.Router();
 const Posts = require('../posts.js');
 
-// Rota principal (home com carrossel)
+// ROTA PRINCIPAL - Home
 router.get('/', async (req, res, next) => {
     try {
-        if (!req.query.busca || req.query.busca.trim() === '') {
+        const busca = req.query.busca;
+
+
+        if (!busca || busca.trim() === '') {
             const posts = await Posts.find()
-                .sort({ createdAt: 1 }) // Ordena por data de criação
-                .limit(5); // Limita a 5 notícias para o carrossel
+                .sort({ createdAt: -1 }) 
+                .limit(5); 
+
             res.render('home', { posts });
         } else {
-            res.redirect('/busca');
+           
+            res.redirect(`/busca?busca=${encodeURIComponent(busca)}`);
         }
     } catch (err) {
-        next(err); // Passa o erro para o middleware de erro
+        next(err);
     }
 });
 
-// Rota de busca
+//ROTA DE BUSCA - /busca
+
 router.get('/busca', async (req, res, next) => {
-    const busca = req.query.busca;
+    const busca = req.query.busca || '';
     try {
         const posts = await Posts.find({
             $or: [
@@ -34,12 +40,16 @@ router.get('/busca', async (req, res, next) => {
     }
 });
 
-// Rota de post individual
+//ROTA DE POST ÚNICO - /:slug
 router.get('/:slug', async (req, res, next) => {
     try {
-        const post = await Posts.findOne({ slug: req.params.slug });
+        const slugParam = req.params.slug;
+
+        //Faz a busca de forma case-insensitive
+        const post = await Posts.findOne({ slug: new RegExp(`^${slugParam}$`, 'i') });
+
         if (post) {
-            res.render('single', { post });
+            res.render('pages/single', { post });
         } else {
             res.status(404).render('404', { mensagem: 'Notícia não encontrada' });
         }
