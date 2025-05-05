@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title><%= post.titulo %></title>
+  <link href="/public/style3.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header>
+        <div class="center">
+        <div class="logo">
+            <a href="/" class="logo-link">
+                <h2><span style="font-weight: lighter;">Portal</span><b>News</b></h2>
+            </a>
+        </div> <!--Logo-->
+        <div class="form-busca">
+            <form>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Usa o google" name="busca">
+            </form>
+        </div><!--form busca-->
+        </div><!--center-->
+    </header>
+  <div class="container-single">
+    
+    <!--Mais lidas-->
+    <div class="mais-lidas">
+      <h3>As mais lidas</h3>
+      <div class="mais-lidas-noticias">
+        <div class="mais-lidas-noticias-single">
+          <img src="/public/images/ash.jpeg" alt="Ash">
+          <div class="texto-mais-lidas-single">
+            <h4>Ash impostor?</h4>
+            <p>Internautas estão desconfiando de Ash. Desde 1999 que o ator tem 10 anos! CGI?</p>
+            <a href="/ash-arrombado">Ler tudo</a>
+          </div>
+        </div>
+
+        <div class="mais-lidas-noticias-single">
+          <img src="/public/images/itachi.jpg" alt="Itachi">
+          <div class="texto-mais-lidas-single">
+            <h4>Itachi realmente morreu?</h4>
+            <p>O mundo em que vivemos pode ser um genjutsu do Itachi, segundo especialistas!</p>
+            <a href="/itachi-nosso-deus">Ler tudo</a>
+          </div>
+        </div>
+
+        <div class="mais-lidas-noticias-single">
+          <img src="/public/images/goku-saitama.jpg" alt="Goku vs Saitama">
+          <div class="texto-mais-lidas-single">
+            <h4>Goku vs Saitama!</h4>
+            <p>Descubra quem venceria em uma porradaria sincera: Goku ou Saitama?</p>
+            <a href="/goku-sentaria-a-porrada-facil">Ler tudo</a>
+          </div>
+        </div>
+
+        <div class="mais-lidas-noticias-single">
+          <img src="/public/images/fudencio.jpg" alt="Fudêncio">
+          <div class="texto-mais-lidas-single">
+            <h4>Por onde anda Fudêncio?</h4>
+            <p>Descubra como o ator de Fudêncio está hoje em dia. As drogas valem a pena?</p>
+            <a href="/drogas-valem-a-pena">Ler tudo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Post principal-->
+    <main class="single-post">
+      <div class="conteudo-single">
+        <h1><%= post.titulo %></h1>
+        <p class="autor">Por <strong><%= post.autor %></strong> em <%= new Date(post.createdAt).toLocaleDateString() %></p>
+        <p class="categoria">Categoria: <%= post.categoria %></p>
+        <img src="<%= post.imagem %>" alt="<%= post.titulo %>" class="imagem-destaque">
+        
+        <article class="conteudo">
+          <p><%- post.conteudo %></p>
+        </article>
+
+        <p class="views">Visualizações: <%= post.views %></p>
+        <a href="/" class="voltar">← Voltar para a home</a>
+      </div>
+    </main>
+
+  </div>
+  <%- include('partials/footer.html') %>
+</body>
+</html>
